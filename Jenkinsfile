@@ -3,7 +3,9 @@ pipeline {
     stages {
         stage("INPUT") {
             steps {
-                sh 'bash input_check.sh $value'
+                catchError {
+                    sh 'bash input_check.sh $value'
+                }
             }
         }
         stage("STATS") {
