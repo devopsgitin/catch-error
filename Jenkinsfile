@@ -3,7 +3,9 @@ pipeline {
     stages {
         stage("INPUT") {
             steps {
-                catchError {
+                catchError(buildResult: 'UNSTABLE', 
+                           message: 'Input Value >= 10', 
+                           stageResult: 'UNSTABLE') {
                     sh 'bash input_check.sh $value'
                 }
             }
