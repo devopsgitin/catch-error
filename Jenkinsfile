@@ -3,8 +3,7 @@ pipeline {
     stages {
         stage("INPUT") {
             steps {
-                sh 
-                '''
+                sh '''
                     set +x
                     'bash input_check.sh $value'
                 '''
@@ -12,8 +11,7 @@ pipeline {
         }
         stage("STATS") {
             steps {
-                sh 
-                '''
+                sh '''
                     set +x
                     'bash stats.sh $value'
                 '''
